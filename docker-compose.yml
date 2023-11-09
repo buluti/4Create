@@ -1,0 +1,34 @@
+version: '3.4'
+
+networks:
+    backend:
+
+services:
+  4createdb: 
+      container_name: 4create-db
+      image: mcr.microsoft.com/mssql/server:2019-latest
+      environment: 
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=PWD12345!
+      networks:
+        - backend
+      ports:
+        - 8001:1433
+
+  4create.api:
+    container_name: 4create-api
+    image: ${DOCKER_REGISTRY-}4create.api
+    build:
+      context: .
+      dockerfile: 4Create.Api/Dockerfile
+    networks:
+        - backend
+    ports:
+        - 8002:443
+        - 8003:80
+    environment:
+        - DB_HOST=4createdb
+        - DB_PORT=8001
+        - DB_NAME=4create-db
+        - DB_USER=sa
+        - DB_SA_PASSWORD=PWD12345!
