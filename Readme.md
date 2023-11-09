@@ -8,4 +8,5 @@ Presentation:
 	Controllers are inside here (outside Web application) so we can enforce the CQRS and DDD architecture 
 	when having large amount of models
 
-testing xunit, FluentAssertion,Moq
+testing:
+	xUnit, FluentAssertion, Moq
