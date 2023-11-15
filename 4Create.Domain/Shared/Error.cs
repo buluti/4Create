@@ -1,4 +1,5 @@
 ﻿namespace _4Create.Domain.Shared;
+
 /// <summary>
 /// Represents a concrete domain error.
 /// </summary>
