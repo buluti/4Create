@@ -1,4 +1,7 @@
 ﻿namespace _4Create.Domain.Shared;
+/// <summary>
+/// Represents a concrete domain error.
+/// </summary>
 public class Error
 {
     public static readonly Error None = new Error(string.Empty, string.Empty);
